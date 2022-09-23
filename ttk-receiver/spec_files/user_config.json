@@ -1,6 +1,6 @@
 {
   "VERSION": 1,
-  "CALLBACK_ENDPOINT": "http://ttk-receiver-backend:4040",
+  "CALLBACK_ENDPOINT": "http://172.17.0.1:4006",
   "CALLBACK_RESOURCE_ENDPOINTS": {
     "enabled": false,
     "endpoints": [

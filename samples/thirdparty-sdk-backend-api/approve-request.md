@@ -33,3 +33,25 @@ Response
     "currentState": "transactionStatusReceived"
 }
 ```
+
+
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": {
+    "transactionStatus": {
+      "transactionId": "c51ec534-ee48-4575-b6a9-ead2955b8069",
+      "transactionRequestState": "ACCEPTED",
+      "transactionState": "COMPLETED"
+    },
+    "currentState": "transactionStatusReceived"
+  },
+  "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-cache",
+    "content-length": "189",
+    "date": "Fri, 23 Sep 2022 05:12:49 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+  }
+}

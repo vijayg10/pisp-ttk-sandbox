@@ -110,11 +110,12 @@
                 }
               }
             }
-          }
+          },
+          "disabled": false
         }
       ],
       "fileInfo": {
-        "path": "new-folder/thirdparty-transfer.json"
+        "path": "thirdparty-transfer.json"
       }
     }
   ]

@@ -1,0 +1,194 @@
+[
+  {
+    "ruleId": 1,
+    "priority": 1,
+    "description": "post /thirdpartyTransaction/partyLookup",
+    "apiVersion": {
+      "minorVersion": 1,
+      "majorVersion": 0,
+      "type": "thirdparty_sdk_outbound",
+      "specFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/api_spec.yaml",
+      "callbackMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/callback_map.json",
+      "responseMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/response_map.json",
+      "jsfRefFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/mockRef.json",
+      "triggerTemplatesFolder": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/trigger_templates"
+    },
+    "conditions": {
+      "all": [
+        {
+          "fact": "operationPath",
+          "operator": "equal",
+          "value": "/thirdpartyTransaction/partyLookup"
+        },
+        {
+          "fact": "method",
+          "operator": "equal",
+          "value": "post"
+        }
+      ]
+    },
+    "event": {
+      "method": null,
+      "path": null,
+      "params": {
+        "body": {
+          "currentState": "partyLookupSuccess",
+          "party": {
+            "partyIdInfo": {
+              "partyIdType": "{$request.body.payee.partyIdType}",
+              "partyIdentifier": "{$request.body.payee.partyIdentifier}",
+              "fspId": "pispA"
+            },
+            "merchantClassificationCode": "4321",
+            "name": "Justin Trudeau",
+            "personalInfo": {
+              "complexName": {
+                "firstName": "Justin",
+                "middleName": "Pierre",
+                "lastName": "Trudeau"
+              },
+              "dateOfBirth": "1980-01-01"
+            }
+          }
+        },
+        "statusCode": "200",
+        "scripts": {
+          "scriptingEngine": "postman"
+        }
+      },
+      "type": "FIXED_RESPONSE"
+    },
+    "type": "response",
+    "version": 1
+  },
+  {
+    "ruleId": 2,
+    "priority": 1,
+    "description": "post /thirdpartyTransaction/{ID}/initiate",
+    "apiVersion": {
+      "minorVersion": 1,
+      "majorVersion": 0,
+      "type": "thirdparty_sdk_outbound",
+      "specFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/api_spec.yaml",
+      "callbackMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/callback_map.json",
+      "responseMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/response_map.json",
+      "jsfRefFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/mockRef.json",
+      "triggerTemplatesFolder": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/trigger_templates"
+    },
+    "conditions": {
+      "all": [
+        {
+          "fact": "operationPath",
+          "operator": "equal",
+          "value": "/thirdpartyTransaction/{ID}/initiate"
+        },
+        {
+          "fact": "method",
+          "operator": "equal",
+          "value": "post"
+        }
+      ]
+    },
+    "event": {
+      "method": null,
+      "path": null,
+      "params": {
+        "body": {
+          "authorization": {
+            "authorizationRequestId": "5f8ee7f9-290f-4e03-ae1c-1e81ecf398df",
+            "transactionRequestId": "{$request.params.ID}",
+            "challenge": "<base64 encoded binary - the encoded challenge>",
+            "transferAmount": {
+              "amount": "10",
+              "currency": "EUR"
+            },
+            "payeeReceiveAmount": {
+              "amount": "10",
+              "currency": "EUR"
+            },
+            "fees": {
+              "amount": "0",
+              "currency": "EUR"
+            },
+            "payee": {
+              "partyIdInfo": {
+                "partyIdType": "{$request.body.payee.partyIdInfo.partyIdType}",
+                "partyIdentifier": "{$request.body.payee.partyIdInfo.partyIdentifier}",
+                "fspId": "{$request.body.payee.partyIdInfo.fspId}"
+              }
+            },
+            "payer": {
+              "partyIdType": "{$request.body.payer.partyIdType}",
+              "partyIdentifier": "{$request.body.payer.partyIdentifier}",
+              "fspId": "{$request.body.payer.fspId}"
+            },
+            "transactionType": {
+              "scenario": "{$request.body.transactionType.scenario}",
+              "initiator": "{$request.body.transactionType.initiator}",
+              "initiatorType": "{$request.body.transactionType.initiatorType}"
+            },
+            "expiration": "{$request.body.expiration}"
+          },
+          "currentState": "authorizationReceived"
+        },
+        "statusCode": "200",
+        "scripts": {
+          "scriptingEngine": "postman"
+        }
+      },
+      "type": "FIXED_RESPONSE"
+    },
+    "type": "response",
+    "version": 1
+  },
+  {
+    "ruleId": 3,
+    "priority": 1,
+    "description": "post /thirdpartyTransaction/{ID}/approve",
+    "apiVersion": {
+      "minorVersion": 1,
+      "majorVersion": 0,
+      "type": "thirdparty_sdk_outbound",
+      "specFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/api_spec.yaml",
+      "callbackMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/callback_map.json",
+      "responseMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/response_map.json",
+      "jsfRefFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/mockRef.json",
+      "triggerTemplatesFolder": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/trigger_templates"
+    },
+    "conditions": {
+      "all": [
+        {
+          "fact": "operationPath",
+          "operator": "equal",
+          "value": "/thirdpartyTransaction/{ID}/approve"
+        },
+        {
+          "fact": "method",
+          "operator": "equal",
+          "value": "post"
+        }
+      ]
+    },
+    "event": {
+      "method": null,
+      "path": null,
+      "params": {
+        "body": {
+          "transactionStatus": {
+            "transactionId": "c51ec534-ee48-4575-b6a9-ead2955b8069",
+            "transactionRequestState": "ACCEPTED",
+            "transactionState": "COMPLETED"
+          },
+          "currentState": "transactionStatusReceived"
+        },
+        "statusCode": "200",
+        "scripts": {
+          "scriptingEngine": "postman"
+        }
+      },
+      "type": "FIXED_RESPONSE"
+    },
+    "type": "response",
+    "version": 1
+  }
+]
