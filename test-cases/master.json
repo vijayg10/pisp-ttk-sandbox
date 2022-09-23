@@ -1,0 +1,12 @@
+{
+  "order": [
+    {
+      "name": "thirdparty-linking.json",
+      "type": "file"
+    },
+    {
+      "name": "thirdparty-transfer.json",
+      "type": "file"
+    }
+  ]
+}

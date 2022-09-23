@@ -1,0 +1,103 @@
+{
+  "test_cases": [
+    {
+      "id": 1,
+      "name": "Linking",
+      "meta": {
+        "info": "This phase includes pre-linking, discovery and linking."
+      },
+      "requests": [
+        {
+          "id": 1,
+          "description": "Get Linking Providers",
+          "meta": {
+            "info": "This request allows us get the list of providers."
+          },
+          "apiVersion": {
+            "minorVersion": 1,
+            "majorVersion": 0,
+            "type": "thirdparty_sdk_outbound",
+            "specFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/api_spec.yaml",
+            "callbackMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/callback_map.json",
+            "responseMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/response_map.json",
+            "jsfRefFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/mockRef.json",
+            "triggerTemplatesFolder": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/trigger_templates"
+          },
+          "operationPath": "/linking/providers",
+          "path": "/linking/providers",
+          "method": "get"
+        },
+        {
+          "id": 2,
+          "description": "Accounts Discovery",
+          "meta": {
+            "info": "PISP presents thirdparty enabled DFSPs to user. User selects a dfpsa and provides a generic ID to search for associated accounts."
+          },                    
+          "apiVersion": {
+            "minorVersion": 1,
+            "majorVersion": 0,
+            "type": "thirdparty_sdk_outbound",
+            "specFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/api_spec.yaml",
+            "callbackMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/callback_map.json",
+            "responseMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/response_map.json",
+            "jsfRefFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/mockRef.json",
+            "triggerTemplatesFolder": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/trigger_templates"
+          },
+          "operationPath": "/linking/accounts/{fspId}/{userId}",
+          "path": "/linking/accounts/dfspa/username1234",
+          "method": "get",
+          "params": {
+            "fspId": "dfspa",
+            "userId": "username1234"
+          }
+        },
+        {
+          "id": 3,
+          "description": "Request Consent",
+          "meta": {
+            "info": "PISP presents accounts to user. User selects one or more accounts to link. The DFSP is expected to send an OTP to the end user which will be used in the next linking step."
+          },
+          "apiVersion": {
+            "minorVersion": 1,
+            "majorVersion": 0,
+            "type": "thirdparty_sdk_outbound",
+            "specFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/api_spec.yaml",
+            "callbackMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/callback_map.json",
+            "responseMapFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/response_map.json",
+            "jsfRefFile": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/mockRef.json",
+            "triggerTemplatesFolder": "spec_files/api_definitions/thirdparty_sdk_outbound_0.1/trigger_templates"
+          },
+          "operationPath": "/linking/request-consent",
+          "path": "/linking/request-consent",
+          "method": "post",
+          "body": {
+            "toParticipantId": "dfspa",
+            "consentRequestId": "{$function.generic.generateUUID}",
+            "accounts": [
+              {
+                "accountNickname": "dfspa.user.nickname1",
+                "address": "dfspa.username.1234",
+                "id": "dfspa.username.1234",
+                "currency": "ZAR"
+              },
+              {
+                "accountNickname": "dfspa.user.nickname2",
+                "address": "dfspa.username.5678",
+                "id": "dfspa.username.5678",
+                "currency": "USD"
+              }
+            ],
+            "actions": [
+              "ACCOUNTS_GET_BALANCE"
+            ],
+            "userId": "username1234",
+            "callbackUri": "pisp-app://callback"
+          }
+        }
+      ],
+      "fileInfo": {
+        "path": "test-cases/thirdparty-linking.json"
+      }
+    }
+  ]
+}

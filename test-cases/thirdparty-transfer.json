@@ -115,7 +115,7 @@
         }
       ],
       "fileInfo": {
-        "path": "thirdparty-transfer.json"
+        "path": "test-cases/thirdparty-transfer.json"
       }
     }
   ]
