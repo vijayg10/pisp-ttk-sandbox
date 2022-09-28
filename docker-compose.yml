@@ -7,8 +7,7 @@ services:
     volumes:
       - "./ttk-sender/spec_files:/opt/app/spec_files"
     ports:
-      - "4040:4040"
-      - "5050:5050"
+      - "15050:5050"
     command:
       - sh
       - -c
@@ -16,9 +15,9 @@ services:
   ttk-sender-ui:
     image: mojaloop/ml-testing-toolkit-ui:v15.0.0
     ports:
-      - "6060:6060"
+      - "16060:6060"
     environment:
-      - API_BASE_URL=http://localhost:5050
+      - API_BASE_URL=http://localhost:15050
       - AUTH_ENABLED=FALSE
     command:
       - sh
@@ -29,7 +28,8 @@ services:
     volumes:
       - "./ttk-receiver/spec_files:/opt/app/spec_files"
     ports:
-      - "15050:5050"
+      - "4040:4040"
+      - "5050:5050"
     command:
       - sh
       - -c
@@ -37,9 +37,9 @@ services:
   ttk-receiver-ui:
     image: mojaloop/ml-testing-toolkit-ui:v15.0.0
     ports:
-      - "16060:6060"
+      - "6060:6060"
     environment:
-      - API_BASE_URL=http://localhost:15050
+      - API_BASE_URL=http://localhost:5050
       - AUTH_ENABLED=FALSE
     command:
       - sh
