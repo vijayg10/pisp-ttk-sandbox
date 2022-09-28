@@ -25,3 +25,8 @@ docker-compose up
 1. Run the docker-compose as per the previous section.
 2. Send the http requests from your implementation to `localhost:4040`.
 3. Observe the inbound requests and simulated responses in TTK receiver monitoring page http://localhost:6060/monitoring
+
+## Explore the Third-party API
+1. Open the web page http://localhost:6060/
+2. Goto `API Management`
+3. Select `thirdparty_sdk_outbound` and click on `API Documentation` button
